@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>
+        <!-- ejsout -->
+        <%= titulo %>
+    </h1>
+    <a href="/nuevo">Nuevo producto</a>
+    <ul>
+        <!-- ejseach -->
+        <% productos.forEach(producto => { %>
+            <li>
+                <p>
+                    <%= producto.nombre %>
+                    ( $<%= producto.precio %> )
+                </p>
+                <a href="/detalle/<%= producto.id %> ">Ver detalles</a>
+                <a href="/editar/<%= producto.id %> ">Editar producto</a>
+                <a href="/borrar/<%= producto.id %> ">Borrar producto</a>
+                <!-- Fecha de creacion de registro en la base de datos -->
+                <p>
+                    <%= producto.createdAt %>
+                </p>
+            </li>
+            <% }) %>
+    </ul>
+</body>
+
+</html>
